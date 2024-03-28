@@ -1,0 +1,155 @@
+
+
+Крысодав крался по ветке. Он с трудом усваивал новое. Зато без труда находил гнёзда. Котяра расслышал чириканье аж с дальнего конца сада, а оказавшись у дерева, разглядел три жёлтых клювика, высовывавшихся из гнезда. Он стал подбираться к ним, дрожа хвостом от предвкушения… Сейчас… Трое Нак-мак-Фиглей сбросили соломенные шапочки с клювами и радостно ухмыльнулись ему в морду.
+– Привет, котява! – заявил один. – Чё, совсем туп-туп, на ус не мотай, да? ЧИРИ-И-ИК!!!
+
+Напишите функцию для выбора вполне себе способных учеников.
+
+Функция punishing() принимает аргумент-строку – новое знание, а также именованные аргументы:
+
+    port – порт сервера, по умолчанию 5000, хост всегда 127.0.0.1;
+    mode – тип существ, по умолчанию cat;
+    level – нижний порог новизны знания, по умолчанию 1.
+
+На сервере записан список словарей с ключами:
+
+name, mode, knowledge (имя, тип существа, его знания – строка слов через запятую и пробел).
+
+Среди знаний заданного типа существ нужно выбрать такие слова, у которых количество общих букв со строкой-аргументом не превышает значение аргумента level (сравниваются уникальные буквы слов).
+Функция возвращает список списков [имя, количество подходящих слов], в котором записаны те существа, у которых есть хоть одно подходящее слово.
+Возвращаемый список отсортирован по количеству слов, затем по алфавиту имени.
+
+Форматирование вывода происходит автоматически.
+
+
+Пример 1
+Ввод 	
+
+# Вызов функции:
+print(punishing('hunter', mode='pixie'))
+
+# Параметры сервера:
+{
+  "host": "127.0.0.1",
+  "port": 5000
+}
+
+# Данные сервера:
+[
+  {
+    "name": "Yavor",
+    "mode": "pixie",
+    "knowledge": "chicks, tree, saucer, threat"
+  },
+  {
+    "name": "Nippyfeet",
+    "mode": "cat",
+    "knowledge": "mouse, danger"
+  },
+  {
+    "name": "Figle",
+    "mode": "pixie",
+    "knowledge": "predator, beak, threat, food, milk"
+  },
+  {
+    "name": "Diddledum",
+    "mode": "cat",
+    "knowledge": "sparrow, danger, mouse, food"
+  },
+  {
+    "name": "Jock",
+    "mode": "pixie",
+    "knowledge": "danger, tree, sword"
+  },
+  {
+    "name": "Nack-Mack",
+    "mode": "pixie",
+    "knowledge": "predator"
+  },
+  {
+    "name": "Ratcatcher",
+    "mode": "cat",
+    "knowledge": "tree, beak, milk, chirp, mouse"
+  }
+]
+
+Вывод
+[
+    [
+        "Jock",
+        1
+    ],
+    [
+        "Yavor",
+        1
+    ],
+    [
+        "Figle",
+        3
+    ]
+]
+
+
+Пример 2
+Ввод 	
+
+# Вызов функции:
+print(punishing('brownies', port=8080, level=2))
+
+# Параметры сервера:
+{
+  "host": "127.0.0.1",
+  "port": 8080
+}
+
+# Данные сервера:
+[
+  {
+    "name": "Yavor",
+    "mode": "pixie",
+    "knowledge": "chicks, tree, saucer, threat"
+  },
+  {
+    "name": "Nippyfeet",
+    "mode": "cat",
+    "knowledge": "mouse, danger"
+  },
+  {
+    "name": "Figle",
+    "mode": "pixie",
+    "knowledge": "predator, beak, threat, food, milk"
+  },
+  {
+    "name": "Diddledum",
+    "mode": "cat",
+    "knowledge": "sparrow, danger, mouse, food"
+  },
+  {
+    "name": "Jock",
+    "mode": "pixie",
+    "knowledge": "danger, tree, sword"
+  },
+  {
+    "name": "Nack-Mack",
+    "mode": "pixie",
+    "knowledge": "predator"
+  },
+  {
+    "name": "Ratcatcher",
+    "mode": "cat",
+    "knowledge": "tree, beak, milk, chirp, mouse"
+  }
+]
+
+	
+Вывод
+[
+    [
+        "Diddledum",
+        1
+    ],
+    [
+        "Ratcatcher",
+        4
+    ]
+]
